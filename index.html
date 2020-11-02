@@ -6,10 +6,7 @@
 
   <title>Rout</title>
   <meta name="description" content="URL shortening service.">
-  <meta name="author" content="Rout">
 
-  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
-  
   <!-- Start Single Page Apps for GitHub Pages -->
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
@@ -38,7 +35,18 @@
 </head>
 
 <body>
-  <h1>Rout</h1>
-  <!-- <script src="js/scripts.js"></script> -->
+  <p id="notice-text" style="max-width: 480px;"></p>
+
+  <script>
+    window.location.assign(`http://routml.pythonanywhere.com${window.location.pathname}`);
+    window.setTimeout(() => {
+      document.getElementById("notice-text").innerHTML = `
+        This is a redirect route for rout.ml url shortening service. 
+        If you are stuck here, Please go to 
+        <a href="http://routml.pythonanywhere.com${window.location.pathname}">routml.pythonanywhere.com${window.location.pathname}</a>
+        to use the service.
+      `;
+    }, 4000);
+  </script>
 </body>
 </html>
