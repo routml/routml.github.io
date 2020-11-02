@@ -38,12 +38,16 @@
   <p id="notice-text" style="max-width: 480px;"></p>
 
   <script>
-    window.location.assign(`http://routml.pythonanywhere.com${window.location.pathname}`);
+    let redirect_to_url = window.location.href;
+    redirect_to_url = redirect_to_url.replace(window.location.hostname, "routml.pythonanywhere.com");
+
+    window.location.assign(redirect_to_url);
+
     window.setTimeout(() => {
       document.getElementById("notice-text").innerHTML = `
         This is a redirect route for rout.ml url shortening service. 
         If you are stuck here, Please go to 
-        <a href="http://routml.pythonanywhere.com${window.location.pathname}">routml.pythonanywhere.com${window.location.pathname}</a>
+        <a href="${redirect_to_url}">${redirect_to_url}</a>
         to use the service.
       `;
     }, 4000);
